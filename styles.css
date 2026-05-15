@@ -2443,6 +2443,14 @@ details p {
   line-height: 1.55;
 }
 
+.cookie-banner__preferences-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
 .cookie-banner__preferences label {
   display: flex;
   gap: 10px;
@@ -2457,6 +2465,10 @@ details p {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.cookie-banner__actions[hidden] {
+  display: none;
 }
 
 .cookie-banner button,
@@ -2507,7 +2519,8 @@ details p {
     justify-content: stretch;
   }
 
-  .cookie-banner button {
+  .cookie-banner button,
+  .cookie-banner__preferences-actions {
     width: 100%;
   }
 }
