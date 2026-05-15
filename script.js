@@ -60,16 +60,13 @@ function showCookieBanner() {
       <a href="/politica-de-privacidade/#cookies">Ver Política de Privacidade</a>
     </div>
     <div class="cookie-banner__preferences" hidden>
-      <label>
-        <input type="checkbox" data-cookie-marketing />
-        Permitir cookies de medição e anúncios
-      </label>
+      <p>Escolha se deseja permitir cookies de medição e anúncios. Os cookies necessários continuam ativos para o funcionamento do site.</p>
     </div>
     <div class="cookie-banner__actions">
       <button type="button" class="cookie-secondary" data-cookie-manage>Gerenciar cookies</button>
-      <button type="button" class="cookie-secondary" data-cookie-reject>Recusar</button>
       <button type="button" class="cookie-primary" data-cookie-accept>Aceitar</button>
-      <button type="button" class="cookie-primary" data-cookie-save hidden>Salvar escolhas</button>
+      <button type="button" class="cookie-secondary" data-cookie-reject hidden>Recusar</button>
+      <button type="button" class="cookie-primary" data-cookie-save hidden>Aceitar</button>
     </div>
   `;
 
@@ -78,18 +75,19 @@ function showCookieBanner() {
   const preferences = banner.querySelector(".cookie-banner__preferences");
   const saveButton = banner.querySelector("[data-cookie-save]");
   const manageButton = banner.querySelector("[data-cookie-manage]");
+  const acceptButton = banner.querySelector("[data-cookie-accept]");
+  const rejectButton = banner.querySelector("[data-cookie-reject]");
 
-  banner.querySelector("[data-cookie-accept]").addEventListener("click", () => saveCookieConsent("accepted"));
-  banner.querySelector("[data-cookie-reject]").addEventListener("click", () => saveCookieConsent("declined"));
+  acceptButton.addEventListener("click", () => saveCookieConsent("accepted"));
+  rejectButton.addEventListener("click", () => saveCookieConsent("declined"));
   manageButton.addEventListener("click", () => {
     preferences.hidden = false;
+    rejectButton.hidden = false;
     saveButton.hidden = false;
     manageButton.hidden = true;
+    acceptButton.hidden = true;
   });
-  saveButton.addEventListener("click", () => {
-    const allowed = banner.querySelector("[data-cookie-marketing]").checked;
-    saveCookieConsent(allowed ? "accepted" : "declined");
-  });
+  saveButton.addEventListener("click", () => saveCookieConsent("accepted"));
 }
 
 const existingCookieConsent = localStorage.getItem(cookieConsentKey);
