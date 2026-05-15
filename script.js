@@ -56,7 +56,7 @@ function showCookieBanner() {
   banner.innerHTML = `
     <div class="cookie-banner__copy">
       <strong>Privacidade e cookies</strong>
-      <p>Usamos cookies necessários para o site funcionar e, com sua autorização, cookies de medição e anúncios para Google Ads, Meta Ads e TikTok Ads.</p>
+      <p>Nosso site usa cookies necessários para funcionar. Com sua autorização, também usamos cookies de medição e anúncios para Google Ads, Meta Ads e TikTok Ads.</p>
       <a href="/politica-de-privacidade/#cookies">Ver Política de Privacidade</a>
     </div>
     <div class="cookie-banner__preferences" hidden>
@@ -66,9 +66,9 @@ function showCookieBanner() {
       </label>
     </div>
     <div class="cookie-banner__actions">
-      <button type="button" class="cookie-secondary" data-cookie-manage>Gerenciar preferências</button>
-      <button type="button" class="cookie-secondary" data-cookie-reject>Recusar não essenciais</button>
-      <button type="button" class="cookie-primary" data-cookie-accept>Aceitar todos</button>
+      <button type="button" class="cookie-secondary" data-cookie-manage>Gerenciar cookies</button>
+      <button type="button" class="cookie-secondary" data-cookie-reject>Recusar</button>
+      <button type="button" class="cookie-primary" data-cookie-accept>Aceitar</button>
       <button type="button" class="cookie-primary" data-cookie-save hidden>Salvar escolhas</button>
     </div>
   `;
