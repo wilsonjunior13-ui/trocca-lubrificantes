@@ -102,6 +102,7 @@ a {
 .header-cta,
 .btn {
   display: inline-flex;
+  flex: 0 0 auto;
   align-items: center;
   justify-content: center;
   gap: 10px;
@@ -112,6 +113,7 @@ a {
   border-radius: 14px;
   font-size: 1rem;
   font-weight: 900;
+  white-space: nowrap;
 }
 
 .header-cta,
@@ -1745,6 +1747,57 @@ details p {
   }
 }
 
+@media (max-width: 1120px) {
+  .site-header {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    padding: 0 32px;
+  }
+
+  .menu-toggle {
+    display: inline-grid;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    place-content: center;
+    background: #fff;
+    border: 1px solid rgba(6, 52, 95, 0.18);
+    border-radius: 10px;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--blue-dark);
+  }
+
+  .site-nav,
+  .header-cta {
+    display: none;
+  }
+
+  .site-nav.is-open {
+    position: absolute;
+    top: 74px;
+    left: 24px;
+    right: 24px;
+    display: grid;
+    justify-content: stretch;
+    gap: 0;
+    padding: 8px;
+    color: var(--blue-dark);
+    background: #fff;
+    border: 1px solid rgba(6, 52, 95, 0.12);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+
+  .site-nav.is-open a {
+    padding: 14px;
+  }
+}
+
 @media (max-width: 1080px) {
   .hero,
   .hero-grid {
@@ -1752,16 +1805,49 @@ details p {
   }
 
   .hero-grid {
-    grid-template-columns: 1fr;
-    padding: 64px 0 52px;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 0.82fr);
+    gap: clamp(22px, 3vw, 34px);
+    padding: 56px 0 48px;
   }
 
   .hero-copy {
-    max-width: 760px;
+    max-width: 640px;
   }
 
   .hero-visual {
-    display: none;
+    display: block;
+    min-height: clamp(320px, 42vw, 430px);
+  }
+
+  .visual-logo {
+    width: clamp(108px, 13vw, 142px);
+    height: clamp(108px, 13vw, 142px);
+    right: clamp(12px, 2vw, 24px);
+  }
+
+  .visual-card {
+    border-radius: 38px;
+  }
+
+  .visual-card-light {
+    right: 0;
+    width: 45%;
+  }
+
+  .visual-card-red {
+    left: 0;
+    width: 74%;
+  }
+
+  .gear-photo {
+    left: 12%;
+    width: 52%;
+  }
+
+  .car-photo {
+    right: 0;
+    width: 86%;
+    height: 46%;
   }
 }
 
